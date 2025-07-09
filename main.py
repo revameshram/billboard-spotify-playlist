@@ -4,11 +4,17 @@ import datetime as d
 from datetime import timedelta
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import env
+from dotenv import load_dotenv
+import os
 
 # Crendentials
-CLIENT_ID="31f6fceb9d324619b3576570e3d6838b"
-CLIENT_SECRET="901c4be27c7447de9c7df2096db731f6"
+
+load_dotenv()
+
+CLIENT_ID=os.getenv("CLIENT_ID")
+CLIENT_SECRET=os.getenv("CLIENT_SECRET")
+
+
 REDIRECTED_URI="http://127.0.0.1:8888/callback"
 
 # date-input
