@@ -38,6 +38,10 @@ url=f"https://www.billboard.com/charts/hot-100/{today.strftime('%Y-%m-%d')}"
 response=requests.get(url=url,headers=header)
 contents=response.text
 
+if response.status_code != 200:
+    print(f"❌ Failed to fetch Billboard chart for {date}. Status code: {response.status_code}")
+    exit()
+
 #gets songs list 
 soup=BeautifulSoup(contents,"html.parser")
 song_rows = soup.find_all("li", class_="o-chart-results-list__item")
